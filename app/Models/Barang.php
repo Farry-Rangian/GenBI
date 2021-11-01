@@ -15,4 +15,8 @@ class Barang extends Model
     {
         return $this->belongsTo(Admin::class);
     }
+    public function orderdetail()
+    {
+        return $this->hasMany(Orderdetail::class);
+    }
 }
