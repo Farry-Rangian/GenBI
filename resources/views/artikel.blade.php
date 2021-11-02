@@ -2,14 +2,25 @@
 @extends('layouts.main')
 
 @section('container')
-<div class="card mb-3">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+@if ($artikels->count())
+  <div class="card mb-3">
+    <img src="https://source.unsplash.com/1200x400/?nature,water" class="card-img-top" alt="...">
+    <div class="card-body text-center">
+      <h3 class="card-title">{{ $artikels[0]->judul }}</h3>
+        <p class="card-text">
+          <small class="text-muted">
+            By : {{ $artikels[0]->user->name }}
+            {{ $artikels[0]->created_at->diffForHumans()}}
+          </small>
+        </p>
+      <p class="card-text">{{ $artikels[0]->excerpt }}</p>
+      <a href="/artikel/{{ $artikels[0]->slug }}" class="text-decoration-none btn btn-primary">Read more</a>
+    </div>
   </div>
-</div>
+@else
+  <p class="text-center fs-4">No post Found</p>
+@endif
+
   @foreach ($artikels as $artikel)
       <article class="mb-5">
         <h2>
