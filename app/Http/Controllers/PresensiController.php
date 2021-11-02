@@ -12,7 +12,7 @@ class PresensiController extends Controller
     {
         return view('presensi', [
             "title" => "Presensi",
-            "user" => User::find(1)
+            "user" => User::with('presensi')->find(1)
         ]);
     }
 
@@ -20,8 +20,8 @@ class PresensiController extends Controller
     {
         return view('presensi', [
             "title" => "Presensi",
-            "user" => $user,
-            "presensis" => $user->presensi
+            "user" => $user->load('presensi'),
+            "presensis" => $user->presensi->load('user','kegiatan')
         ]);
     }
 }

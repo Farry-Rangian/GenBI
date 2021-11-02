@@ -11,7 +11,7 @@ class UserController extends Controller
     {
         return view('biodata', [
             "title" => "Biodata",
-            "user" => User::find(1)
+            "user" => User::with('biodata')->find(1)
         ]);
     }
 }
