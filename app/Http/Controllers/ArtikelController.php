@@ -11,7 +11,7 @@ class ArtikelController extends Controller
     {
         return view('artikel', [
             "title" => "Artikel",
-            "artikels" => Artikel::all()
+            "artikels" => Artikel::with('user')->latest()->get()
         ]);
     }
 
@@ -19,7 +19,7 @@ class ArtikelController extends Controller
     {
         return view('artikel1', [
             "title" => "Artikel",
-            "artikel" => $artikel
+            "artikel" => $artikel->load('user')
         ]);
     }
 }
