@@ -11,15 +11,15 @@ class GaleriController extends Controller
     {
         return view('galeris', [
             "title" => "Galeri",
-            "galeris" => Galeri::all()
+            "galeris" => Galeri::with('kegiatan')->latest()->get()
         ]);
     }
     public function show(Galeri $galeri)
     {
         return view('Galeri', [
             "title" => "Galeri",
-            "galeri" => $galeri,
-            "kegiatans" => $galeri->kegiatan
+            "galeri" => $galeri->load('kegiatan'),
+            "kegiatans" => $galeri->kegiatan->load('galeri')
         ]);
     }
 }
