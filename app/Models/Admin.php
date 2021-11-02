@@ -18,4 +18,8 @@ class Admin extends Model
     {
         return $this->hasMany(Barang::class);
     }
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
 }
