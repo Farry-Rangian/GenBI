@@ -21,12 +21,28 @@
   <p class="text-center fs-4">No post Found</p>
 @endif
 
-  @foreach ($artikels as $artikel)
-      <article class="mb-5">
-        <h2>
-          <a href="/artikel/{{ $artikel->slug }}">{{ $artikel->judul }}</a>
-        </h2>
-        <p>{{ $artikel->excerpt }}</p>
-      </article>
-  @endforeach
+<div class="container">
+  <div class="row">
+    @foreach ($artikels->skip(1) as $artikel)
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <img src="https://source.unsplash.com/500x400/?nature" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">
+              <a href="/artikel/{{ $artikel->slug }}">{{ $artikel->judul }}</a>
+          </h5>
+          <p class="card-text">
+            <small class="text-muted">
+              By : {{ $artikel->user->name }}
+              {{ $artikel->created_at->diffForHumans()}}
+            </small>
+          </p>
+          <p class="card-text">{{ $artikel->excerpt }}</p>
+          <a href="/artikel/{{ $artikel->slug }}" class="btn btn-primary">Read more</a>
+        </div>
+      </div>
+    </div>
+    @endforeach
+  </div>
+</div>
 @endsection
