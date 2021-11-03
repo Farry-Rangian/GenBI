@@ -28,6 +28,11 @@
             <a class="nav-link {{ ($title === "Struktur Kepengurusan") ? 'active' : '' }}" href="/struktur-kepengurusan">Struktur Kepengurusan</a>
           </li>
         </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link {{ ($title === "Login") ? 'active' : '' }}" href="/login" class="nav-link"><i class="bi bi-box-arrow-in-right"></i>Login</a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>

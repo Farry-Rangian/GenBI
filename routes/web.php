@@ -4,10 +4,11 @@ use App\Models\Artikel;
 use App\Models\Kegiatan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PresensiController;
-use App\Http\Controllers\GaleriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,5 @@ Route::get('/struktur-kepengurusan', function () {
         "title" => "Struktur Kepengurusan"
     ]);
 });
+
+Route::get('/login', [LoginController::class, 'index']);
