@@ -13,7 +13,7 @@
           </small>
         </p>
       <p class="card-text">{{ $kegiatans[0]->content }}</p>
-      <a href="/kegiatans/{{ $kegiatans[0]->id }}" class="text-decoration-none btn btn-primary">Read more</a>
+      <a href="/kegiatans/{{ $kegiatans[0]->slug }}" class="text-decoration-none btn btn-primary">Read more</a>
     </div>
   </div>
 @else
@@ -28,7 +28,7 @@
         <img src="https://source.unsplash.com/500x400/?nature" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">
-            <a href="/kegiatans/{{ $kegiatan->id }}">{{ $kegiatan->name }}</a>
+            <a href="/kegiatans/{{ $kegiatan->slug }}">{{ $kegiatan->name }}</a>
           </h5>
           <p class="card-text">
             <small class="text-muted">
@@ -37,7 +37,7 @@
             </small>
           </p>
           <p>{{ $kegiatan->content }}</p>
-          <a href="/kegiatans/{{ $kegiatan->id }}" class="btn btn-primary">Read more</a>
+          <a href="/kegiatans/{{ $kegiatan->slug }}" class="btn btn-primary">Read more</a>
         </div>
       </div>
     </div>

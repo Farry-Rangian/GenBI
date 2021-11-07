@@ -10,7 +10,13 @@
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/artikels') ? 'active' : '' }}" href="/dashboard/artikels">
             <span data-feather="file-text"></span>
-            My Artikel
+            Artikel
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/kegiatans') ? 'active' : '' }}" href="/dashboard/kegiatans">
+            <span data-feather="file-text"></span>
+            Kegiatan
           </a>
         </li>
       </ul>

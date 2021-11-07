@@ -11,6 +11,7 @@ use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardArtikelController;
+use App\Http\Controllers\DashboardKegiatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,7 @@ Route::get('/biodata', [UserController::class, 'index']);
 
 Route::get('/kegiatans', [KegiatanController::class, 'index']);
 
-Route::get('/kegiatans/{kegiatan}', [KegiatanController::class, 'show']);
+Route::get('/kegiatans/{kegiatan:slug}', [KegiatanController::class, 'show']);
 
 Route::get('/presensi/{user}', [PresensiController::class, 'show']);
 
@@ -65,3 +66,4 @@ Route::get('/dashboard', function(){
 })->middleware('auth');
 
 Route::resource('/dashboard/artikels', DashboardArtikelController::class)->middleware('auth');
+Route::resource('/dashboard/kegiatans', DashboardKegiatanController::class)->middleware('auth');

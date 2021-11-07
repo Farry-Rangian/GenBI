@@ -25,4 +25,9 @@ class Kegiatan extends Model
         return $this->belongsTo(Admin::class);
     }
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 }
