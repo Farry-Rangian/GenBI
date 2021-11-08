@@ -12,6 +12,7 @@ use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardArtikelController;
 use App\Http\Controllers\DashboardKegiatanController;
+use App\Http\Controllers\DashboardPresensiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,3 +68,4 @@ Route::get('/dashboard', function(){
 
 Route::resource('/dashboard/artikels', DashboardArtikelController::class)->middleware('auth');
 Route::resource('/dashboard/kegiatans', DashboardKegiatanController::class)->middleware('auth');
+Route::resource('/dashboard/presensi', DashboardPresensiController::class)->middleware('auth');

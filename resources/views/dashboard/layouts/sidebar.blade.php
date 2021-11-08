@@ -19,6 +19,12 @@
             Kegiatan
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/presensi') ? 'active' : '' }}" href="/dashboard/presensi">
+            <span data-feather="file-text"></span>
+            Presensi
+          </a>
+        </li>
       </ul>
     </div>
   </nav>
