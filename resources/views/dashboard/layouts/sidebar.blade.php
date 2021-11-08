@@ -25,6 +25,12 @@
             Presensi
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/ujian') ? 'active' : '' }}" href="/dashboard/ujian">
+            <span data-feather="file-text"></span>
+            Ujian
+          </a>
+        </li>
       </ul>
     </div>
   </nav>

@@ -15,4 +15,9 @@ class Ujian extends Model
     {
         return $this->hasMany(Pertanyaan::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
