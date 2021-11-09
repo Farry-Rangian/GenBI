@@ -10,6 +10,9 @@
                     <p>
                         {{ $pertanyaan->nama_pertanyaan }}
                     </p>
+                    <p>
+                        {{ $pertanyaan->jawaban }}
+                    </p>
                 @endforeach
                 
             </article>
