@@ -5,29 +5,16 @@
     <h1 class="h2">Ujian</h1>
 </div>
 
-<div class="table-responsive col-lg-8">
-    <table class="table table-striped table-sm">
-      <thead>
-        <tr>
-          <th scope="col">No</th>
-          <th scope="col">Nama Ujian</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach ($ujians as $ujian)
-        <tr>
-          <td>{{ $loop->iteration }}</td>
-          <td>{{ $ujian->nama_ujian }}</td>
-          <td>
-            <a href="/dashboard/ujian/{{ $ujian->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
-            <a href="" class="badge bg-warning"><span data-feather="edit"></span></a>
-            <a href="" class="badge bg-danger"><span data-feather="x-circle"></span></a>
-          </td>
-        </tr>
-        @endforeach
-      </tbody>
-    </table>
+@foreach ($ujians as $ujian)
+<div class="card" style="width: 18rem;">
+  <img src="/img/ujian.png" class="card-img-top" alt="ujian">
+  <div class="card-body">
+    <h5 class="card-title">{{ $ujian->nama_ujian }}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="/dashboard/ujian/{{ $ujian->slug }}" class="btn btn-primary">Masuk</a>
   </div>
+</div>
+@endforeach
+
 
 @endsection

@@ -98,3 +98,89 @@ body {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
+
+/* css untuk soal */
+.no_soal {
+  width: 900px;
+  margin: auto;
+  background-color: lightskyblue;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.pertanyaan {
+  width: 890px;
+  border-top: 5px solid lightskyblue;
+  border-left: 5px solid lightskyblue;
+  border-right: 5px solid lightskyblue;
+  margin-top: -10px;
+  margin-left: 45px;
+  padding: 5px;
+}
+
+
+.jawaban {
+  border-left: 5px solid lightskyblue;
+  border-right: 5px solid lightskyblue;
+  border-bottom: 3px solid lightskyblue;
+  margin-top: -10px;
+  padding: 5px;
+  margin-left: 45px;
+  margin-right: 45px;
+}
+
+
+.isi {
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.daftar-soal {
+  width: 900px;
+  height: 50px;
+  margin-left: 46px;
+  margin-top: 10px;
+  background-color: lightskyblue;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.daftar-soal h3 {
+  margin-top: 10px;
+}
+
+.list-soal {
+  width: 890px;
+  padding: 5px;
+  border-top: 5px solid lightskyblue;
+  border-left: 5px solid lightskyblue;
+  border-right: 5px solid lightskyblue;
+  margin-left: 46px;
+  margin-top: -10px;
+}
+
+.list-soal ul {
+  margin-left: -30px;
+}
+
+.list-soal ul li {
+  display: inline-block;
+  border: 2px solid black;
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.list-soal ul li:hover {
+  background-color: lightblue;
+}
+
+.list-soal a {
+  text-decoration: none;
+  color: black;
+}
+
+.list-soal a:hover {
+  color: white;
+}
