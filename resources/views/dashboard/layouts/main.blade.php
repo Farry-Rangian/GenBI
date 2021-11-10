@@ -13,6 +13,8 @@
     
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
+
+    <link href="/css/style1.css" rel="stylesheet">
   </head>
   <body>
     
