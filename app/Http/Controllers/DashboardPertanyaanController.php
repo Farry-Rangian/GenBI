@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jawaban;
+use App\Models\Pertanyaan;
 use Illuminate\Http\Request;
 
-class DashboardJawabanController extends Controller
+class DashboardPertanyaanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class DashboardJawabanController extends Controller
      */
     public function index()
     {
-        return view('dashboard.jawaban.index',[
-            'jawabans' => Jawaban::where('user_id', auth()->user()->id)->get()
+        return view('dashboard.pertanyaan.index',[
+            'pertanyaans' => Pertanyaan::all(),
         ]);
     }
 
@@ -43,24 +43,24 @@ class DashboardJawabanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Jawaban  $jawaban
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Jawaban $jawaban)
+    public function show(Pertanyaan $pertanyaan)
     {
-        return view('dashboard.jawaban.show',[
-            'jawabans' => $jawaban,
-            'jawaban' => $jawaban->isian
+        return view('dashboard.pertanyaan.show',[
+            'pertanyaan' => $pertanyaan,
+            'jawaban' => $pertanyaan->Jawaban
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Jawaban  $jawaban
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Jawaban $jawaban)
+    public function edit($id)
     {
         //
     }
@@ -69,10 +69,10 @@ class DashboardJawabanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Jawaban  $jawaban
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Jawaban $jawaban)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -80,10 +80,10 @@ class DashboardJawabanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Jawaban  $jawaban
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jawaban $jawaban)
+    public function destroy($id)
     {
         //
     }

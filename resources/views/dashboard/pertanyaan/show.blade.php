@@ -5,19 +5,18 @@
     <div class="row my-3">
         <div class="col-lg-8">
             <article>
-                <h2>{{ $ujian->nama_ujian }}</h2>
-                @foreach ($pertanyaans as $pertanyaan)
+                    <h5> 
+                        <a href="/dashboard/ujian/pertanyaan/{pertanyaan}">
+                            {{ $pertanyaan->nama_pertanyaan }}
+                        </a>
+                    </h5>
                     <p>
-                        {{ $pertanyaan->nama_pertanyaan }}
+                        {{ $jawaban }}
                     </p>
-                    <p>
-                        {{ $pertanyaan->jawaban }}
-                    </p>
-                @endforeach
                 
             </article>
             <br>
-            <a href="/dashboard/ujian" class="btn btn-success"><span data-feather="arrow-left"></span> Back to Ujian</a>
+            <a href="/dashboard/ujian/pertanyaan" class="btn btn-success"><span data-feather="arrow-left"></span> Back to Pertanyaan</a>
             <a href="" class="btn btn-warning"><span data-feather="edit"></span> Edit</a>
             <a href="" class="btn btn-danger"><span data-feather="x-circle"></span> Delete</a>
         </div>

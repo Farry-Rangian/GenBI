@@ -11,7 +11,7 @@
   <div class="card-body">
     <h5 class="card-title">{{ $ujian->nama_ujian }}</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="/dashboard/ujian/{{ $ujian->slug }}" class="btn btn-primary">Masuk</a>
+    <a href="/dashboard/ujian/jawaban" class="btn btn-primary">Masuk</a>
   </div>
 </div>
 @endforeach

@@ -12,8 +12,10 @@ use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardUjianController;
 use App\Http\Controllers\DashboardArtikelController;
+use App\Http\Controllers\DashboardJawabanController;
 use App\Http\Controllers\DashboardKegiatanController;
 use App\Http\Controllers\DashboardPresensiController;
+use App\Http\Controllers\DashboardPertanyaanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,4 +72,7 @@ Route::get('/dashboard', function(){
 Route::resource('/dashboard/artikels', DashboardArtikelController::class)->middleware('auth');
 Route::resource('/dashboard/kegiatans', DashboardKegiatanController::class)->middleware('auth');
 Route::resource('/dashboard/presensi', DashboardPresensiController::class)->middleware('auth');
-Route::resource('/dashboard/ujian', DashboardUjianController::class)->middleware('auth');
+Route::get('/dashboard/ujian', [DashboardUjianController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/ujian/pertanyaan', [DashboardPertanyaanController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/ujian/jawaban', [DashboardJawabanController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/ujian/jawaban/{jawaban}', [DashboardJawabanController::class, 'show'])->middleware('auth');

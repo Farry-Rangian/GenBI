@@ -5,14 +5,12 @@
     <div class="row my-3">
         <div class="col-lg-8">
             <article>
-                <h2>{{ $ujian->nama_ujian }}</h2>
                 @foreach ($pertanyaans as $pertanyaan)
-                    <p>
-                        {{ $pertanyaan->nama_pertanyaan }}
-                    </p>
-                    <p>
-                        {{ $pertanyaan->jawaban }}
-                    </p>
+                    <h5> 
+                        <a href="/dashboard/ujian/jawaban/{{ $pertanyaan->jawaban->id }}">
+                            {{ $pertanyaan->nama_pertanyaan }}
+                        </a>
+                    </h5>
                 @endforeach
                 
             </article>
