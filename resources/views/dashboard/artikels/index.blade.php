@@ -6,6 +6,7 @@
 </div>
 
 <div class="table-responsive col-lg-8">
+  <a href="/dashboard/artikels/create" class="btn btn-primary mb-3">Create new Article</a>
     <table class="table table-striped table-sm">
       <thead>
         <tr>

@@ -69,6 +69,7 @@ Route::get('/dashboard', function(){
     return view('dashboard.index');
 })->middleware('auth');
 
+Route::get('/dashboard/artikels/checkSlug', [DashboardArtikelController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/artikels', DashboardArtikelController::class)->middleware('auth');
 Route::resource('/dashboard/kegiatans', DashboardKegiatanController::class)->middleware('auth');
 Route::resource('/dashboard/presensi', DashboardPresensiController::class)->middleware('auth');
