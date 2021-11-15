@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kegiatan;
 use App\Models\Presensi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class DashboardPresensiController extends Controller
 {
@@ -40,7 +41,15 @@ class DashboardPresensiController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $validatedData = $request->validate([
+            'kegiatan_id' => 'required',
+            'kesimpulan' => 'required'
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Presensi::create($validatedData);
+        return redirect('/dashboard/presensi');
     }
 
     /**
