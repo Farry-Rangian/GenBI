@@ -41,7 +41,17 @@ class DashboardKegiatanController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'slug' => 'required|unique:kegiatans',
+            'galeri_id' => 'required',
+            'admin_id' => 'required',
+            'content' => 'required',
+            'komisariat' => 'required|max:255'
+        ]);
+
+        Kegiatan::create($validatedData);
+        return redirect('/dashboard/kegiatans');
     }
 
     /**
