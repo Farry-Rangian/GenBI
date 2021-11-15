@@ -26,7 +26,7 @@ class DashboardUjianController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.ujian.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class DashboardUjianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
