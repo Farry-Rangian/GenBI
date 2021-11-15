@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Artikel;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Str;
 
 class DashboardArtikelController extends Controller
 {
@@ -38,7 +39,17 @@ class DashboardArtikelController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $validatedData = $request->validate([
+            'judul' => 'required|max:255',
+            'slug' => 'required|unique:artikels',
+            'content' => 'required',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->content),200);
+
+        Artikel::create($validatedData);
+        return redirect('/dashboard/artikels');
     }
 
     /**

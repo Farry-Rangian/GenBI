@@ -13,7 +13,7 @@
         </div>
         <div class="mb-3">
             <label for="slug" class="form-label">Slug</label>
-            <input type="text" class="form-control" id="slug" name="slug" disabled readonly>
+            <input type="text" class="form-control" id="slug" name="slug">
         </div>
         <div class="mb-3">
             <label for="content" class="form-label">Content</label>
@@ -24,7 +24,7 @@
     </form>
 </div>
 
-<script>
+{{-- <script>
     const judul = document.querySelector('#judul');
     const slug = document.querySelector('#slug');
 
@@ -37,5 +37,5 @@
     document.addEventListener('trix-file-accept', function(e) {
         e.preventDefault();
     })
-</script>
+</script> --}}
 @endsection
