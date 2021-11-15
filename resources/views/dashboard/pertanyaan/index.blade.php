@@ -4,12 +4,11 @@
 <div class="container">
     <div class="row my-3">
         <div class="col-lg-8">
+            <a href="/dashboard/ujian/pertanyaan/create" class="btn btn-primary mb-3">Tambah Pertanyaan</a>
             <article>
                 @foreach ($pertanyaans as $pertanyaan)
                     <h5> 
-                        <a href="/dashboard/ujian/jawaban/{{ $pertanyaan->jawaban->id }}">
-                            {{ $pertanyaan->nama_pertanyaan }}
-                        </a>
+                        {{ $pertanyaan->nama_pertanyaan }}
                     </h5>
                 @endforeach
                 

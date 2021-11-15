@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ujian;
 use App\Models\Pertanyaan;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,9 @@ class DashboardPertanyaanController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.pertanyaan.create',[
+            'ujians' => Ujian::all(),
+        ]);
     }
 
     /**
@@ -37,7 +40,7 @@ class DashboardPertanyaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**

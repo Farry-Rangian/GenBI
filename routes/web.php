@@ -77,6 +77,6 @@ Route::resource('/dashboard/presensi', DashboardPresensiController::class)->midd
 Route::get('/dashboard/ujian', [DashboardUjianController::class, 'index'])->middleware('auth');
 Route::get('/dashboard/ujian/create', [DashboardUjianController::class, 'create'])->middleware('auth');
 Route::post('/dashboard/ujian/create', [DashboardUjianController::class, 'store'])->middleware('auth');
-Route::resource('/dashboard/pertanyaan', [DashboardPertanyaanController::class])->middleware('auth');
+Route::resource('/dashboard/ujian/pertanyaan', DashboardPertanyaanController::class)->middleware('auth');
 Route::get('/dashboard/ujian/jawaban', [DashboardJawabanController::class, 'index'])->middleware('auth');
 Route::get('/dashboard/ujian/jawaban/{jawaban}', [DashboardJawabanController::class, 'show'])->middleware('auth');
