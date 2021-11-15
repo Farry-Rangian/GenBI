@@ -79,4 +79,6 @@ Route::get('/dashboard/ujian/create', [DashboardUjianController::class, 'create'
 Route::post('/dashboard/ujian/create', [DashboardUjianController::class, 'store'])->middleware('auth');
 Route::resource('/dashboard/ujian/pertanyaan', DashboardPertanyaanController::class)->middleware('auth');
 Route::get('/dashboard/ujian/jawaban', [DashboardJawabanController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/ujian/jawaban/create', [DashboardJawabanController::class, 'create'])->middleware('auth');
+Route::post('/dashboard/ujian/jawaban/create', [DashboardJawabanController::class, 'store'])->middleware('auth');
 Route::get('/dashboard/ujian/jawaban/{jawaban}', [DashboardJawabanController::class, 'show'])->middleware('auth');

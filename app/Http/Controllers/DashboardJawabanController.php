@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jawaban;
+use App\Models\Pertanyaan;
 use Illuminate\Http\Request;
 
 class DashboardJawabanController extends Controller
@@ -26,7 +27,9 @@ class DashboardJawabanController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.jawaban.create',[
+            'pertanyaans' => Pertanyaan::all()
+        ]);
     }
 
     /**
@@ -37,7 +40,7 @@ class DashboardJawabanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**

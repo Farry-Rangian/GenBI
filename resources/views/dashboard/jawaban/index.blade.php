@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row my-3">
         <div class="col-lg-8">
+            <a href="/dashboard/ujian/jawaban/create" class="btn btn-primary mb-3">Isi Jawaban</a>
             <article>
                 @foreach ($jawabans as $jawaban)
                     <h5>
@@ -14,10 +15,10 @@
                 @endforeach
                 
             </article>
-            <br>
+            {{-- <br>
             <a href="/dashboard/ujian" class="btn btn-success"><span data-feather="arrow-left"></span> Back to Ujian</a>
             <a href="" class="btn btn-warning"><span data-feather="edit"></span> Edit</a>
-            <a href="" class="btn btn-danger"><span data-feather="x-circle"></span> Delete</a>
+            <a href="" class="btn btn-danger"><span data-feather="x-circle"></span> Delete</a> --}}
         </div>
     </div>
 </div>
