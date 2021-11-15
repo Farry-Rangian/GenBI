@@ -40,7 +40,13 @@ class DashboardPertanyaanController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $validatedData = $request->validate([
+            'ujian_id' => 'required',
+            'nama_pertanyaan' => 'required|max:30'
+        ]);
+
+        Pertanyaan::create($validatedData);
+        return redirect('/dashboard/ujian/pertanyaan');
     }
 
     /**
