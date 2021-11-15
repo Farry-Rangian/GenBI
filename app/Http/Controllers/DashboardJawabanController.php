@@ -41,6 +41,15 @@ class DashboardJawabanController extends Controller
     public function store(Request $request)
     {
         return $request;
+        $validatedData = $request->validate([
+            'pertanyaan_id' => 'required',
+            'isian' => 'required'
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Pertanyaan::create($validatedData);
+        return redirect('/dashboard/ujian/jawaban');
     }
 
     /**
