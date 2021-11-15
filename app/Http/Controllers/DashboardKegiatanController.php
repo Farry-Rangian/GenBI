@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kegiatan;
+use App\Models\Galeri;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardKegiatanController extends Controller
 {
@@ -26,7 +28,9 @@ class DashboardKegiatanController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.kegiatan.create',[
+            'galerys' => Galeri::all()
+        ]);
     }
 
     /**
@@ -37,7 +41,7 @@ class DashboardKegiatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
@@ -85,5 +89,11 @@ class DashboardKegiatanController extends Controller
     public function destroy(Kegiatan $kegiatan)
     {
         //
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Kegiatan::class, 'slug', $request->name);
+        return response()->json(['slug' => $slug]);
     }
 }
