@@ -40,10 +40,9 @@ class DashboardJawabanController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
         $validatedData = $request->validate([
             'pertanyaan_id' => 'required',
-            'isian' => 'required'
+            'isian' => 'required|max:255'
         ]);
 
         $validatedData['user_id'] = auth()->user()->id;
