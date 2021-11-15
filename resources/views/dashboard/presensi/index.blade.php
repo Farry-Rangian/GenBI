@@ -5,6 +5,7 @@
     <h1 class="h2">Presensi</h1>
 </div>
 
+<a href="/dashboard/presensi/create" class="btn btn-primary mb-3">Isi Presensi</a>
 <div class="table-responsive col-lg-8">
     <table class="table table-striped table-sm">
       <thead>

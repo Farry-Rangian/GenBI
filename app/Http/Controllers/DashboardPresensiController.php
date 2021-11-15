@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kegiatan;
 use App\Models\Presensi;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,9 @@ class DashboardPresensiController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.presensi.create',[
+            'kegiatans' => Kegiatan::all()
+        ]);
     }
 
     /**
@@ -37,7 +40,7 @@ class DashboardPresensiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
