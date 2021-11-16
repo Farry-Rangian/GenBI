@@ -15,7 +15,7 @@
             <label for="slug" class="form-label">Slug</label>
             <input type="text" class="form-control" id="slug" name="slug">
         </div>
-        <button type="submit" class="btn btn-primary">Create Ujian</button>
+        <button type="submit" class="btn btn-primary">Buat Ujian Baru</button>
     </form>
 </div>
 @endsection

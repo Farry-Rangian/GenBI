@@ -2,7 +2,7 @@
 
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Create new Kegiatan</h1>
+    <h1 class="h2">Buat Kegiatan Baru</h1>
 </div>
 <div class="col-lg-8">
     <form method="post" action="/dashboard/kegiatans">
@@ -36,7 +36,7 @@
             <input id="content" type="hidden" name="content">
             <trix-editor input="content"></trix-editor>
         </div>
-        <button type="submit" class="btn btn-primary">Create Kegiatan</button>
+        <button type="submit" class="btn btn-primary">Buat Kegiatan</button>
     </form>
 </div>
 
