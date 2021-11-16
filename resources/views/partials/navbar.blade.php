@@ -15,18 +15,18 @@
           <li class="nav-item">
             <a class="nav-link {{ ($title === "Kegiatan") ? 'active' : '' }}" href="/kegiatans">Kegiatan</a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link {{ ($title === "Presensi") ? 'active' : '' }}" href="/presensi/1">Presensi</a>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a class="nav-link {{ ($title === "Galeri") ? 'active' : '' }}" href="/galeris">Galeri</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ ($title === "Artikel") ? 'active' : '' }}" href="/artikel">Artikel</a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link {{ ($title === "Struktur Kepengurusan") ? 'active' : '' }}" href="http://127.0.0.1:5500/ujian/ujian.html">Ujian</a>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a class="nav-link" href="http://127.0.0.1:5500/TOKO/index.html">Toko</a>
           </li>
