@@ -12,7 +12,7 @@
             {{ $kegiatans[0]->created_at->diffForHumans()}}
           </small>
         </p>
-      <p class="card-text">{{ $kegiatans[0]->content }}</p>
+      <p class="card-text">{!! $kegiatans[0]->content !!}</p>
       <a href="/kegiatans/{{ $kegiatans[0]->slug }}" class="text-decoration-none btn btn-primary">Read more</a>
     </div>
   </div>
@@ -36,7 +36,7 @@
               {{ $kegiatan->created_at->diffForHumans()}}
             </small>
           </p>
-          <p>{{ $kegiatan->content }}</p>
+          <p>{!! $kegiatan->content !!}</p>
           <a href="/kegiatans/{{ $kegiatan->slug }}" class="btn btn-primary">Read more</a>
         </div>
       </div>
