@@ -24,8 +24,13 @@
           <td>{{ $artikel->published_at }}</td>
           <td>
             <a href="/dashboard/artikels/{{ $artikel->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
-            <a href="" class="badge bg-warning"><span data-feather="edit"></span></a>
-            <a href="" class="badge bg-danger"><span data-feather="x-circle"></span></a>
+            <a href="/dashboard/artikels/{{ $artikel->slug }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+            <form action="/dashboard/artikels/{{ $artikel->slug }}" method="post" class="d-inline">
+              @method('delete')
+              @csrf
+
+              <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span></button>
+            </form>
           </td>
         </tr>
         @endforeach

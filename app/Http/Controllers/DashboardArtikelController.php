@@ -73,7 +73,9 @@ class DashboardArtikelController extends Controller
      */
     public function edit(Artikel $artikel)
     {
-        //
+        return view('dashboard.artikels.edit', [
+            'artikel' => $artikel
+        ]);
     }
 
     /**
@@ -85,7 +87,22 @@ class DashboardArtikelController extends Controller
      */
     public function update(Request $request, Artikel $artikel)
     {
-        //
+        $rules = [
+            'judul' => 'required|max:255',
+            'content' => 'required',
+        ];
+
+        if($request->slug != $artikel->slug) {
+            $rules['slug'] = 'required|unique:artikels';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->content),200);
+
+        Artikel::where('id', $artikel->id)->update($validatedData);
+        return redirect('/dashboard/artikels');
     }
 
     /**
@@ -96,7 +113,8 @@ class DashboardArtikelController extends Controller
      */
     public function destroy(Artikel $artikel)
     {
-        //
+        Artikel::destroy($artikel->id);
+        return redirect('/dashboard/artikels');
     }
 
     public function checkSlug(Request $request)
