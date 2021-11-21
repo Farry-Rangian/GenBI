@@ -75,7 +75,10 @@ class DashboardKegiatanController extends Controller
      */
     public function edit(Kegiatan $kegiatan)
     {
-        //
+        return view('dashboard.kegiatan.edit', [
+            'galerys' => Galeri::all(),
+            'kegiatan' => $kegiatan
+        ]);
     }
 
     /**
@@ -87,7 +90,19 @@ class DashboardKegiatanController extends Controller
      */
     public function update(Request $request, Kegiatan $kegiatan)
     {
-        //
+        $rules = [
+            'name' => 'required|max:255',
+            'content' => 'required',
+        ];
+
+        if($request->slug != $kegiatan->slug) {
+            $rules['slug'] = 'required|unique:kegiatans';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        Kegiatan::where('id', $kegiatan->id)->update($validatedData);
+        return redirect('/dashboard/kegiatans');
     }
 
     /**
@@ -98,7 +113,8 @@ class DashboardKegiatanController extends Controller
      */
     public function destroy(Kegiatan $kegiatan)
     {
-        //
+        Kegiatan::destroy($kegiatan->id);
+        return redirect('/dashboard/kegiatans');
     }
 
     public function checkSlug(Request $request)
