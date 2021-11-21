@@ -47,7 +47,7 @@ class DashboardJawabanController extends Controller
 
         $validatedData['user_id'] = auth()->user()->id;
 
-        Pertanyaan::create($validatedData);
+        Jawaban::create($validatedData);
         return redirect('/dashboard/ujian/jawaban');
     }
 
