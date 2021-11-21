@@ -10,6 +10,7 @@
                             {{ $pertanyaan->nama_pertanyaan }}
                         </a>
                     </h5>
+                    {{-- harus dilakukan looping foreach --}}
                     <p>
                         {{ $jawaban }}
                     </p>

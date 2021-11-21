@@ -19,7 +19,7 @@
           <label for="isian" class="form-label">Jawaban</label>
           <input type="text" class="form-control" id="isian" name="isian">
         </div>
-        <button type="submit" class="btn btn-primary">Create Question</button>
+        <button type="submit" class="btn btn-primary">Jawab</button>
     </form>
 </div>
 @endsection

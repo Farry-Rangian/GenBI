@@ -19,7 +19,7 @@
           <label for="nama_pertanyaan" class="form-label">Nama Pertanyaan</label>
           <input type="text" class="form-control" id="nama_pertanyaan" name="nama_pertanyaan">
         </div>
-        <button type="submit" class="btn btn-primary">Create Question</button>
+        <button type="submit" class="btn btn-primary">Buat Pertanyaan</button>
     </form>
 </div>
 @endsection
