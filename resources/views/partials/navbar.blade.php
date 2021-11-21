@@ -10,9 +10,6 @@
             <a class="nav-link {{ ($title === "Home") ? 'active' : '' }}" href="/">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ ($title === "Biodata") ? 'active' : '' }}" href="/biodata">Biodata</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link {{ ($title === "Kegiatan") ? 'active' : '' }}" href="/kegiatans">Kegiatan</a>
           </li>
           {{-- <li class="nav-item">
