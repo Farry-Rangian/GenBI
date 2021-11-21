@@ -8,6 +8,12 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/biodata*') ? 'active' : '' }}" href="/dashboard/biodata">
+            <span data-feather="file-text"></span>
+            Biodata
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/artikels*') ? 'active' : '' }}" href="/dashboard/artikels">
             <span data-feather="file-text"></span>
             Artikel

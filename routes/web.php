@@ -12,6 +12,7 @@ use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardUjianController;
 use App\Http\Controllers\DashboardArtikelController;
+use App\Http\Controllers\DashboardBiodataController;
 use App\Http\Controllers\DashboardJawabanController;
 use App\Http\Controllers\DashboardKegiatanController;
 use App\Http\Controllers\DashboardPresensiController;
@@ -74,6 +75,7 @@ Route::get('/dashboard/kegiatans/checkSlug', [DashboardKegiatanlController::clas
 Route::resource('/dashboard/artikels', DashboardArtikelController::class)->middleware('auth');
 Route::resource('/dashboard/kegiatans', DashboardKegiatanController::class)->middleware('auth');
 Route::resource('/dashboard/presensi', DashboardPresensiController::class)->middleware('auth');
+Route::resource('/dashboard/biodata', DashboardBiodataController::class)->middleware('auth');
 Route::get('/dashboard/ujian', [DashboardUjianController::class, 'index'])->middleware('auth');
 Route::get('/dashboard/ujian/create', [DashboardUjianController::class, 'create'])->middleware('auth');
 Route::post('/dashboard/ujian/create', [DashboardUjianController::class, 'store'])->middleware('auth');
