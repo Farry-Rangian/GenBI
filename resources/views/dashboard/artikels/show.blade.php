@@ -6,7 +6,13 @@
         <div class="col-lg-8">
             <article>
                 <h2>{{ $artikel->judul }}</h2>
-                <img src="https://source.unsplash.com/1200x600/?nature" alt="" class="img-fluid mt-3">
+                @if ($artikel->image)
+                    <div style="max-height: 350px; overflow:hidden">
+                        <img src="{{ asset('storage/'. $artikel->image) }}" alt="" class="img-fluid mt-3">
+                    </div>
+                @else
+                    <img src="https://source.unsplash.com/1200x600/?nature" alt="" class="img-fluid mt-3">
+                @endif
                 <article class="my-3 fs-5">
                     {!! $artikel->content !!}
                 </article>

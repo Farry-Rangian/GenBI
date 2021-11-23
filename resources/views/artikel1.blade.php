@@ -14,7 +14,13 @@
                       {{ $artikel->created_at->diffForHumans()}}
                     </small>
                 </p>
-                <img src="https://source.unsplash.com/1200x600/?nature" alt="" class="img-fluid">
+                @if ($artikel->image)
+                    <div style="max-height: 350px; overflow:hidden">
+                        <img src="{{ asset('storage/'. $artikel->image) }}" alt="" class="img-fluid mt-3">
+                    </div>
+                @else
+                    <img src="https://source.unsplash.com/1200x600/?nature" alt="" class="img-fluid mt-3">
+                @endif
                 <article class="my-3">
                     {!! $artikel->content !!}
                 </article>

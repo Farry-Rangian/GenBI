@@ -4,7 +4,13 @@
 @section('container')
 @if ($artikels->count())
   <div class="card mb-3">
-    <img src="https://source.unsplash.com/1200x400/?nature,water" class="card-img-top" alt="...">
+    @if ($artikels[0]->image)
+      <div style="max-height: 350px; overflow:hidden">
+        <img src="{{ asset('storage/'. $artikels[0]->image) }}" alt="" class="img-fluid mt-3">
+      </div>
+    @else
+      <img src="https://source.unsplash.com/1200x600/?nature" alt="" class="img-fluid mt-3">
+    @endif
     <div class="card-body text-center">
       <h3 class="card-title">{{ $artikels[0]->judul }}</h3>
         <p class="card-text">
@@ -26,7 +32,13 @@
     @foreach ($artikels->skip(1) as $artikel)
     <div class="col-md-4 mb-3">
       <div class="card">
-        <img src="https://source.unsplash.com/500x400/?nature" class="card-img-top" alt="...">
+        @if ($artikel->image)
+          <div style="max-height: 350px; overflow:hidden">
+            <img src="{{ asset('storage/'. $artikel->image) }}" alt="" class="img-fluid mt-3">
+          </div>
+        @else
+          <img src="https://source.unsplash.com/1200x600/?nature" alt="" class="img-fluid mt-3">
+        @endif
         <div class="card-body">
           <h5 class="card-title">
               <a href="/artikel/{{ $artikel->slug }}">{{ $artikel->judul }}</a>

@@ -39,11 +39,17 @@ class DashboardArtikelController extends Controller
      */
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'judul' => 'required|max:255',
             'slug' => 'required|unique:artikels',
+            'image' => 'image|file|max:1024',
             'content' => 'required',
         ]);
+
+        if($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('artikel-image');
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->content),200);
