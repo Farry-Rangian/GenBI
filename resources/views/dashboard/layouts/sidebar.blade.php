@@ -9,7 +9,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/biodata*') ? 'active' : '' }}" href="/dashboard/biodata">
-            <span data-feather="file-text"></span>
+            <span data-feather="user"></span>
             Biodata
           </a>
         </li>
@@ -21,7 +21,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/kegiatans') ? 'active' : '' }}" href="/dashboard/kegiatans">
-            <span data-feather="file-text"></span>
+            <span data-feather="activity"></span>
             Kegiatan
           </a>
         </li>
@@ -33,7 +33,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/ujian') ? 'active' : '' }}" href="/dashboard/ujian">
-            <span data-feather="file-text"></span>
+            <span data-feather="book-open"></span>
             Ujian
           </a>
         </li>
