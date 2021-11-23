@@ -17,7 +17,7 @@ class DashboardBiodataController extends Controller
     {
         return view('dashboard.biodata.index',[
             'users' => User::where('id', auth()->user()->id)->get(),
-            'biodata' => Biodata::where('user_id', auth()->user()->id)->get()
+            'biodatas' => Biodata::where('user_id', auth()->user()->id)->get()
         ]);
     }
 
@@ -39,7 +39,19 @@ class DashboardBiodataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'user_sex' => 'required',
+            'agama' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'komisariat' => 'required',
+            'alamat' => 'required|max:30',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Biodata::create($validatedData);
+        return redirect('/dashboard/biodata');
     }
 
     /**
@@ -55,13 +67,15 @@ class DashboardBiodataController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
+    *
      * @param  \App\Models\Biodata  $biodata
      * @return \Illuminate\Http\Response
      */
     public function edit(Biodata $biodata)
     {
-        //
+        return view('dashboard.biodata.edit', [
+            'biodata' => $biodata
+        ]);
     }
 
     /**
@@ -73,7 +87,18 @@ class DashboardBiodataController extends Controller
      */
     public function update(Request $request, Biodata $biodata)
     {
-        //
+        $rules = [
+            'user_sex' => 'required',
+            'agama' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'komisariat' => 'required',
+            'alamat' => 'required|max:30',
+        ];
+        $validatedData = $request->validate($rules);
+
+        Biodata::where('id', $biodata->id)->update($validatedData);
+        return redirect('/dashboard/biodata');
     }
 
     /**
