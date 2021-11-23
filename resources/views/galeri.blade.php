@@ -1,14 +1,19 @@
 @extends('layouts.main')
 
 @section('container')
-@foreach ($kegiatans as $kegiatan)
-<div class="card" style="width: 12rem;">
-  <img src="https://source.unsplash.com/1200x400/?nature,water" class="card-img-top" alt="...">
-  {{-- <div class="card-body">
-    <h5 class="card-title">{{ $kegiatan->name }}</h5>
-    <p class="card-text">{{ $kegiatan->content }}</p>
-    <a href="/kegiatans/{{ $kegiatan->id }}" class="btn btn-primary">See More</a>
-  </div> --}}
+<div class="container">
+  <div class="row">
+    @foreach ($kegiatans as $kegiatan)
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        @if ($kegiatan->image)
+            <img src="{{ asset('storage/'. $kegiatan->image) }}" alt="" class="img-fluid">
+        @else
+          <img src="https://source.unsplash.com/1200x600/?nature" alt="" class="img-fluid mt-3">
+        @endif
+      </div>
+    </div>
+    @endforeach
+  </div>
 </div>
-@endforeach
 @endsection
