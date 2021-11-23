@@ -5,7 +5,7 @@
     <h1 class="h2">Presensi</h1>
 </div>
 <div class="col-lg-8">
-    <form method="post" action="/dashboard/presensi">
+    <form method="post" action="/dashboard/presensi" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="kegiatan" class="form-label">Kegiatan</label>
@@ -18,6 +18,15 @@
         <div class="mb-3">
           <label for="kesimpulan" class="form-label">Kesimpulan</label>
           <input type="text" class="form-control" id="kesimpulan" name="kesimpulan">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Pilih Gambar</label>
+            <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image">
+            @error('image')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
         <button type="submit" class="btn btn-primary">Isi Presensi</button>
     </form>

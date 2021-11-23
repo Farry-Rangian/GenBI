@@ -43,8 +43,13 @@ class DashboardPresensiController extends Controller
     {
         $validatedData = $request->validate([
             'kegiatan_id' => 'required',
-            'kesimpulan' => 'required'
+            'kesimpulan' => 'required',
+            'image' => 'image|file|max:2048'
         ]);
+
+        if($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('presensi-image');
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
 
@@ -94,6 +99,7 @@ class DashboardPresensiController extends Controller
      */
     public function destroy(Presensi $presensi)
     {
-        //
+        Presensi::destroy($presensi->id);
+        return redirect('/dashboard/presensi');
     }
 }
