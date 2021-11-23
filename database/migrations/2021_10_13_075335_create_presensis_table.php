@@ -18,6 +18,7 @@ class CreatePresensisTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('kegiatan_id');
             $table->text('kesimpulan');
+            $table->string('image');
             $table->timestamps();
         });
     }

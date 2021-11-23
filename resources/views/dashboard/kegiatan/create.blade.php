@@ -5,7 +5,7 @@
     <h1 class="h2">Buat Kegiatan Baru</h1>
 </div>
 <div class="col-lg-8">
-    <form method="post" action="/dashboard/kegiatans">
+    <form method="post" action="/dashboard/kegiatans" class="mb-5" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
           <label for="name" class="form-label">Judul</label>
@@ -30,6 +30,15 @@
                     <option value="{{ $galery->id }}">{{ $galery->judul }}</option>
                 @endforeach
             </select>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Pilih Gambar</label>
+            <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image">
+            @error('image')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="content" class="form-label">Content</label>

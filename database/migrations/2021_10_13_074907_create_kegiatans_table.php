@@ -20,6 +20,7 @@ class CreateKegiatansTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('komisariat');
+            $table->string('image');
             $table->string('content');
             $table->timestamps();
         });

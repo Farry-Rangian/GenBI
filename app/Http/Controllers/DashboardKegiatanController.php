@@ -47,8 +47,13 @@ class DashboardKegiatanController extends Controller
             'galeri_id' => 'required',
             'admin_id' => 'required',
             'content' => 'required',
+            'image' => 'image|file|max:1024',
             'komisariat' => 'required|max:255'
         ]);
+
+        if($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('kegiatan-image');
+        }
 
         Kegiatan::create($validatedData);
         return redirect('/dashboard/kegiatans');

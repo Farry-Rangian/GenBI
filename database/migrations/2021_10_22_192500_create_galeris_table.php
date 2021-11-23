@@ -17,6 +17,7 @@ class CreateGalerisTable extends Migration
             $table->id();
             $table->foreignId('kegiatan_id');
             $table->string('judul');
+            $table->string('image');
             $table->string('desc');
             $table->timestamps();
         });

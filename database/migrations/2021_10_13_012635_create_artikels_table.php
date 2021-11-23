@@ -19,6 +19,7 @@ class CreateArtikelsTable extends Migration
             $table->string('judul');
             $table->string('slug');
             $table->text('excerpt');
+            $table->text('image');
             $table->text('content');
             $table->timestamp('published_at')->nullable;
             $table->timestamps();
