@@ -20,21 +20,15 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard/presensi') ? 'active' : '' }}" href="/dashboard/presensi">
+          <a class="nav-link {{ Request::is('dashboard/presensi*') ? 'active' : '' }}" href="/dashboard/presensi">
             <span data-feather="file-text"></span>
             Presensi
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard/ujian') ? 'active' : '' }}" href="/dashboard/ujian">
+          <a class="nav-link {{ Request::is('dashboard/ujian*') ? 'active' : '' }}" href="/dashboard/ujian">
             <span data-feather="book-open"></span>
             Ujian
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard/galeri') ? 'active' : '' }}" href="/dashboard/galeri">
-            <span data-feather="file-text"></span>
-            Galeri
           </a>
         </li>
       </ul>
@@ -45,9 +39,15 @@
       </h6>
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard/kegiatans') ? 'active' : '' }}" href="/dashboard/kegiatans">
+          <a class="nav-link {{ Request::is('dashboard/kegiatans*') ? 'active' : '' }}" href="/dashboard/kegiatans">
             <span data-feather="activity"></span>
             Kegiatan
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/galeri*') ? 'active' : '' }}" href="/dashboard/galeri">
+            <span data-feather="file-text"></span>
+            Galeri
           </a>
         </li>
       </ul>

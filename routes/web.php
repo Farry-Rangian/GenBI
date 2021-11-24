@@ -75,7 +75,7 @@ Route::get('/dashboard/artikels/checkSlug', [DashboardArtikelController::class, 
 Route::get('/dashboard/kegiatans/checkSlug', [DashboardKegiatanlController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/artikels', DashboardArtikelController::class)->middleware('auth');
 Route::resource('/dashboard/kegiatans', DashboardKegiatanController::class)->middleware('admin');
-Route::resource('/dashboard/galeri', DashboardGaleriController::class);
+Route::resource('/dashboard/galeri', DashboardGaleriController::class)->middleware('admin');
 Route::resource('/dashboard/presensi', DashboardPresensiController::class)->middleware('auth');
 Route::resource('/dashboard/biodata', DashboardBiodataController::class)->middleware('auth');
 Route::get('/dashboard/ujian', [DashboardUjianController::class, 'index'])->middleware('auth');
