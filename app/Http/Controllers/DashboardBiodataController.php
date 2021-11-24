@@ -62,7 +62,9 @@ class DashboardBiodataController extends Controller
      */
     public function show(Biodata $biodata)
     {
-        //
+        return view('dashboard.biodata.show',[
+            'biodata' => $biodata
+        ]);
     }
 
     /**
@@ -87,6 +89,7 @@ class DashboardBiodataController extends Controller
      */
     public function update(Request $request, Biodata $biodata)
     {
+        return $request;
         $rules = [
             'user_sex' => 'required',
             'agama' => 'required',
@@ -96,6 +99,8 @@ class DashboardBiodataController extends Controller
             'alamat' => 'required|max:30',
         ];
         $validatedData = $request->validate($rules);
+
+        $validatedData['user_id'] = auth()->user()->id;
 
         Biodata::where('id', $biodata->id)->update($validatedData);
         return redirect('/dashboard/biodata');

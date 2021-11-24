@@ -5,7 +5,7 @@
     <h1 class="h2">Edit Kegiatan</h1>
 </div>
 <div class="col-lg-8">
-    <form method="post" action="/dashboard/biodata/{{ $biodata->id }}">
+    <form method="post" action="/dashboard/biodata/{{ $biodata->id }}" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="mb-3">
