@@ -46,7 +46,6 @@ class DashboardKegiatanController extends Controller
             'name' => 'required|max:255',
             'slug' => 'required|unique:kegiatans',
             'galeri_id' => 'required',
-            'admin_id' => 'required',
             'content' => 'required',
             'image' => 'image|file|max:2048',
             'komisariat' => 'required|max:255'
@@ -55,6 +54,8 @@ class DashboardKegiatanController extends Controller
         if($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('kegiatan-image');
         }
+
+        $validatedData['user_id'] = auth()->user()->id;
 
         Kegiatan::create($validatedData);
         return redirect('/dashboard/kegiatans');
@@ -114,6 +115,8 @@ class DashboardKegiatanController extends Controller
             }
             $validatedData['image'] = $request->file('image')->store('kegiatan-image');
         }
+
+        $validatedData['user_id'] = auth()->user()->id;
 
         Kegiatan::where('id', $kegiatan->id)->update($validatedData);
         return redirect('/dashboard/kegiatans');

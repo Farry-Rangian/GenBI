@@ -15,7 +15,6 @@ class CreateGalerisTable extends Migration
     {
         Schema::create('galeris', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kegiatan_id');
             $table->string('judul');
             $table->string('image');
             $table->string('desc');

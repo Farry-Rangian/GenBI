@@ -15,15 +15,13 @@ class Kegiatan extends Model
     {
         return $this->hasMany(Presensi::class);
     }
-
     public function galeri()
     {
         return $this->belongsTo(Galeri::class);
     }
-
-    public function admin()
+    public function user()
     {
-        return $this->belongsTo(Admin::class);
+        return $this->belongsTo(User::class);
     }
 
     public function getRouteKeyName()

@@ -12,10 +12,6 @@
           <input type="text" class="form-control" id="name" name="name">
         </div>
         <div class="mb-3">
-            <label for="admin_id" class="form-label">Admin</label>
-            <input type="text" class="form-control" id="admin_id" name="admin_id">
-          </div>
-        <div class="mb-3">
             <label for="slug" class="form-label">Slug</label>
             <input type="text" class="form-control" id="slug" name="slug">
         </div>
