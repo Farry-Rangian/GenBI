@@ -50,6 +50,12 @@
             Galeri
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('/dashboard/ujian/pertanyaan*') ? 'active' : '' }}" href="/dashboard/ujian/pertanyaan">
+            <span data-feather="book-open"></span>
+            Buat Ujian
+          </a>
+        </li>
       </ul>
       @endcan
     </div>
