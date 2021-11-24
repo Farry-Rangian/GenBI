@@ -89,14 +89,13 @@ class DashboardBiodataController extends Controller
      */
     public function update(Request $request, Biodata $biodata)
     {
-        return $request;
         $rules = [
             'user_sex' => 'required',
             'agama' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
             'komisariat' => 'required',
-            'alamat' => 'required|max:30',
+            'alamat' => 'required|max:255',
         ];
         $validatedData = $request->validate($rules);
 

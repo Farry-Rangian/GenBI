@@ -4,9 +4,9 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Biodata Saya</h1>
 </div>
-
+<a href="/dashboard/biodata/{{ $biodatas }}/edit" class="btn btn-primary mb-3">Edit Biodata</a>
 @foreach ($biodatas as $biodata)
-<a href="/dashboard/biodata/{{ $biodata->id }}/edit" class="btn btn-primary mb-3">Edit Biodata</a>
+
 <h2>KOMISARIAT: {{ $biodata->komisariat }}</h2>
 <h2>NAMA: {{ $biodata->user->name }}</h2>
 <ul class="list-group">
