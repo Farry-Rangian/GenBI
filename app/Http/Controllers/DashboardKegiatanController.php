@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kegiatan;
 use App\Models\Galeri;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardKegiatanController extends Controller
@@ -97,6 +98,7 @@ class DashboardKegiatanController extends Controller
     {
         $rules = [
             'name' => 'required|max:255',
+            'image' => 'image|file|max:1024',
             'content' => 'required',
         ];
 
@@ -105,6 +107,13 @@ class DashboardKegiatanController extends Controller
         }
 
         $validatedData = $request->validate($rules);
+
+        if($request->file('image')) {
+            if($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('kegiatan-image');
+        }
 
         Kegiatan::where('id', $kegiatan->id)->update($validatedData);
         return redirect('/dashboard/kegiatans');
@@ -118,6 +127,9 @@ class DashboardKegiatanController extends Controller
      */
     public function destroy(Kegiatan $kegiatan)
     {
+        if($kegiatan->image) {
+            Storage::delete($kegiatan->image);
+        }
         Kegiatan::destroy($kegiatan->id);
         return redirect('/dashboard/kegiatans');
     }
