@@ -20,12 +20,6 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard/kegiatans') ? 'active' : '' }}" href="/dashboard/kegiatans">
-            <span data-feather="activity"></span>
-            Kegiatan
-          </a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/presensi') ? 'active' : '' }}" href="/dashboard/presensi">
             <span data-feather="file-text"></span>
             Presensi
@@ -38,5 +32,19 @@
           </a>
         </li>
       </ul>
+
+      @can('admin')
+      <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+        <span>Administrator</span>
+      </h6>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/kegiatans') ? 'active' : '' }}" href="/dashboard/kegiatans">
+            <span data-feather="activity"></span>
+            Kegiatan
+          </a>
+        </li>
+      </ul>
+      @endcan
     </div>
   </nav>
