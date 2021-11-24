@@ -70,7 +70,8 @@ class DashboardKegiatanController extends Controller
     public function show(Kegiatan $kegiatan)
     {
         return view('dashboard.kegiatan.show',[
-            'kegiatan' => $kegiatan
+            'kegiatan' => $kegiatan,
+            'presensis' => $kegiatan->presensi
         ]);
     }
 

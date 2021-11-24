@@ -27,6 +27,24 @@
   
                 <button class="btn btn-danger " onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span>Delete</button>
             </form>
+            <table class="table table-striped table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">nama</th>
+                    <th scope="col">Tanggal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($presensis as $presensi)
+                  <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $presensi->user->name }}</td>
+                    <td>{{ $presensi->created_at }}</td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
         </div>
     </div>
 </div>
