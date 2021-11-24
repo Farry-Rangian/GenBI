@@ -46,7 +46,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/galeri*') ? 'active' : '' }}" href="/dashboard/galeri">
-            <span data-feather="file-text"></span>
+            <span data-feather="image"></span>
             Galeri
           </a>
         </li>

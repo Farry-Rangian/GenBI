@@ -13,6 +13,7 @@
           <th scope="col">No</th>
           <th scope="col">Judul</th>
           <th scope="col">Tanggal</th>
+          <th scope="col">Created By</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -22,6 +23,7 @@
           <td>{{ $loop->iteration }}</td>
           <td>{{ $kegiatan->name }}</td>
           <td>{{ $kegiatan->created_at }}</td>
+          <td>{{ $kegiatan->user->name }}</td>
           <td>
             <a href="/dashboard/kegiatans/{{ $kegiatan->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
             <a href="/dashboard/kegiatans/{{ $kegiatan->slug }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
