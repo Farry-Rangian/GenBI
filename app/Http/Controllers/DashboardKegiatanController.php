@@ -48,7 +48,7 @@ class DashboardKegiatanController extends Controller
             'galeri_id' => 'required',
             'admin_id' => 'required',
             'content' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:2048',
             'komisariat' => 'required|max:255'
         ]);
 
@@ -98,7 +98,7 @@ class DashboardKegiatanController extends Controller
     {
         $rules = [
             'name' => 'required|max:255',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:2048',
             'content' => 'required',
         ];
 

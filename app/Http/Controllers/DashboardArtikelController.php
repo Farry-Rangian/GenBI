@@ -6,6 +6,7 @@ use App\Models\Artikel;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardArtikelController extends Controller
 {
@@ -43,7 +44,7 @@ class DashboardArtikelController extends Controller
         $validatedData = $request->validate([
             'judul' => 'required|max:255',
             'slug' => 'required|unique:artikels',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:2048',
             'content' => 'required',
         ]);
 
@@ -95,6 +96,7 @@ class DashboardArtikelController extends Controller
     {
         $rules = [
             'judul' => 'required|max:255',
+            'image' => 'image|file|max:2048',
             'content' => 'required',
         ];
 
@@ -103,6 +105,13 @@ class DashboardArtikelController extends Controller
         }
 
         $validatedData = $request->validate($rules);
+
+        if($request->file('image')) {
+            if($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('kegiatan-image');
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->content),200);
@@ -119,6 +128,9 @@ class DashboardArtikelController extends Controller
      */
     public function destroy(Artikel $artikel)
     {
+        if($artikel->image) {
+            Storage::delete($artikel->image);
+        }
         Artikel::destroy($artikel->id);
         return redirect('/dashboard/artikels');
     }
