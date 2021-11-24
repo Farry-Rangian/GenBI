@@ -11,14 +11,14 @@ class KegiatanController extends Controller
     {
         return view('kegiatans', [
             "title" => "Kegiatan",
-            "kegiatans" => Kegiatan::with(['presensi','admin'])->latest()->get()
+            "kegiatans" => Kegiatan::with(['presensi','user'])->latest()->get()
         ]);
     }
     public function show(Kegiatan $kegiatan)
     {
         return view('kegiatan', [
             "title" => "Kegiatan",
-            "kegiatan" => $kegiatan->load('presensi','admin'),
+            "kegiatan" => $kegiatan->load('presensi','user'),
             "presensis" => $kegiatan->presensi->load('kegiatan','user')
         ]);
     }

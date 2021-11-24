@@ -14,7 +14,7 @@
       <h3 class="card-title">{{ $kegiatans[0]->name }}</h3>
         <p class="card-text">
           <small class="text-muted">
-            By : {{ $kegiatans[0]->admin->name }}
+            By : {{ $kegiatans[0]->user->name }}
             {{ $kegiatans[0]->created_at->diffForHumans()}}
           </small>
         </p>
@@ -41,7 +41,7 @@
           </h5>
           <p class="card-text">
             <small class="text-muted">
-              By : {{ $kegiatan->admin->name }}
+              By : {{ $kegiatan->user->name }}
               {{ $kegiatan->created_at->diffForHumans()}}
             </small>
           </p>
