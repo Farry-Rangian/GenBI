@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kegiatan;
 use App\Models\Presensi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardPresensiController extends Controller
 {
@@ -99,6 +99,9 @@ class DashboardPresensiController extends Controller
      */
     public function destroy(Presensi $presensi)
     {
+        if($presensi->image) {
+            Storage::delete($presensi->image);
+        }
         Presensi::destroy($presensi->id);
         return redirect('/dashboard/presensi');
     }
