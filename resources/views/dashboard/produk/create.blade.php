@@ -46,25 +46,25 @@
         </div>
         <div class="mb-3">
             <label for="deskripsi" class="form-label">Deskripsi</label>
-            <input type="text" class="form-control" id="deskripsi">
+            <input type="text" class="form-control" id="deskripsi" name="deskripsi">
         </div>
         <button type="submit" class="btn btn-primary">Tambah Produk</button>
     </form>
 </div>
 
 <script>
-    const name = document.querySelector('#name');
-    const slug = document.querySelector('#slug');
+    // const name = document.querySelector('#name');
+    // const slug = document.querySelector('#slug');
 
-    name.addEventListener('change', function(){
-        fetch('/dashboard/kegiatans/checkSlug?name=' + name.value)
-            .then(response => response.json())
-            .then(data => slug.value = data.slug)
-    });
+    // name.addEventListener('change', function(){
+    //     fetch('/dashboard/kegiatans/checkSlug?name=' + name.value)
+    //         .then(response => response.json())
+    //         .then(data => slug.value = data.slug)
+    // });
 
-    document.addEventListener('trix-file-accept', function(e) {
-        e.preventDefault();
-    })
+    // document.addEventListener('trix-file-accept', function(e) {
+    //     e.preventDefault();
+    // })
 
     function previewImage() {
         const image = document.querySelector('#image');

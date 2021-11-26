@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardTokoController extends Controller
 {
@@ -15,7 +16,7 @@ class DashboardTokoController extends Controller
     public function index()
     {
         return view('dashboard.produk.index',[
-            'produk' => Produk::all()
+            'produks' => Produk::all()
         ]);
     }
 
@@ -63,7 +64,10 @@ class DashboardTokoController extends Controller
      */
     public function show(Produk $produk)
     {
-        //
+        return $produk;
+        return view('dashboard.produk.show',[
+            'produk' => $produk
+        ]);
     }
 
     /**
@@ -97,6 +101,10 @@ class DashboardTokoController extends Controller
      */
     public function destroy(Produk $produk)
     {
-        //
+        if($produk->image) {
+            Storage::delete($produk->image);
+        }
+        Produk::destroy($produk->id);
+        return redirect('/dashboard/toko');
     }
 }

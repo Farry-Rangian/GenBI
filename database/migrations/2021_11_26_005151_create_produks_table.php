@@ -18,8 +18,8 @@ class CreateProduksTable extends Migration
             $table->string('nama_produk');
             $table->foreignId('user_id');
             $table->string('slug');
-            $table->integer('harga_produk');
             $table->string('image');
+            $table->integer('harga_produk');
             $table->text('deskripsi');
             $table->timestamps();
         });
