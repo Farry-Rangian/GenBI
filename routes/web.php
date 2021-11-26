@@ -10,6 +10,7 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardTokoController;
 use App\Http\Controllers\DashboardUjianController;
 use App\Http\Controllers\DashboardGaleriController;
 use App\Http\Controllers\DashboardArtikelController;
@@ -76,6 +77,7 @@ Route::get('/dashboard/kegiatans/checkSlug', [DashboardKegiatanlController::clas
 Route::resource('/dashboard/artikels', DashboardArtikelController::class)->middleware('auth');
 Route::resource('/dashboard/kegiatans', DashboardKegiatanController::class)->middleware('admin');
 Route::resource('/dashboard/galeri', DashboardGaleriController::class)->middleware('admin');
+Route::resource('/dashboard/toko', DashboardTokoController::class);
 Route::resource('/dashboard/presensi', DashboardPresensiController::class)->middleware('auth');
 Route::resource('/dashboard/biodata', DashboardBiodataController::class)->middleware('auth');
 Route::get('/dashboard/ujian', [DashboardUjianController::class, 'index'])->middleware('auth');

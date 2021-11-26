@@ -31,6 +31,12 @@
             Ujian
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/toko*') ? 'active' : '' }}" href="/dashboard/toko">
+            <span data-feather="file-text"></span>
+            Toko
+          </a>
+        </li>
       </ul>
 
       @can('admin')

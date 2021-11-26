@@ -21,11 +21,8 @@
           <li class="nav-item">
             <a class="nav-link {{ ($title === "Artikel") ? 'active' : '' }}" href="/artikel">Artikel</a>
           </li>
-          {{-- <li class="nav-item">
-            <a class="nav-link {{ ($title === "Struktur Kepengurusan") ? 'active' : '' }}" href="http://127.0.0.1:5500/ujian/ujian.html">Ujian</a>
-          </li> --}}
           <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1:5500/TOKO/index.html">Toko</a>
+            <a class="nav-link {{ Request::is('/toko*') ? 'active' : '' }}" href="/toko">Toko</a>
           </li>
         </ul>
 
