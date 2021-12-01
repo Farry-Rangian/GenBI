@@ -3,6 +3,7 @@
 use App\Models\Artikel;
 use App\Models\Kegiatan;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TokoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GaleriController;
@@ -37,8 +38,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/biodata', [UserController::class, 'index']);
-
 Route::get('/kegiatans', [KegiatanController::class, 'index']);
 
 Route::get('/kegiatans/{kegiatan:slug}', [KegiatanController::class, 'show']);
@@ -54,12 +53,8 @@ Route::get('/artikel', [ArtikelController::class, 'index']);
 //halaman single artikel
 Route::get('/artikel/{artikel:slug}', [ArtikelController::class, 'show']);
 
-
-Route::get('/struktur-kepengurusan', function () {
-    return view('struktur', [
-        "title" => "Struktur Kepengurusan"
-    ]);
-});
+Route::get('/toko', [TokoController::class, 'index']);
+Route::get('/toko/{produk}', [TokoController::class, 'show']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
