@@ -39,7 +39,7 @@
         @endif
         <div class="card-body">
           <h5 class="card-title">
-            <a href="/toko/{{ $produk->id }}">{{ $produk->nama_produk }}</a>
+            <a href="/toko/{{ $produk->slug }}">{{ $produk->nama_produk }}</a>
           </h5>
           <p class="card-text">
             <small class="text-muted">
@@ -49,7 +49,7 @@
           </p>
           <p>Harga : Rp.{!! $produk->harga_produk !!}</p>
           <p>{!! $produk->deskripsi !!}</p>
-          <a href="/toko/{{ $produk->id }}" class="btn btn-primary">Read more</a>
+          <a href="/toko/{{ $produk->slug }}" class="btn btn-primary">Read more</a>
         </div>
       </div>
     </div>

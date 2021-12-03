@@ -21,4 +21,13 @@ class TokoController extends Controller
             "produk" => $produk->load('user'),
         ]);
     }
+    public function store(Request $request, Produk $produk)
+    {
+        $validatedData = $request->validate([
+            'jumlah_barang' => 'required'
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['produk_id'] = $produk->id;
+    }
 }

@@ -11,8 +11,17 @@ class Orderdetail extends Model
 
     protected $guarded = ['id'];
 
-    public function barang()
+    public function user()
     {
-        return $this->belongsTo(Barang::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class);
+    }
+
+    public function setTotal() {
+        $this->total = $this->harga_produk * $this->jumlah_barang;
     }
 }

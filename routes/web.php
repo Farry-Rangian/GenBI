@@ -55,7 +55,7 @@ Route::get('/artikel', [ArtikelController::class, 'index']);
 Route::get('/artikel/{artikel:slug}', [ArtikelController::class, 'show']);
 
 Route::get('/toko', [TokoController::class, 'index']);
-Route::get('/toko/{produk}', [TokoController::class, 'show']);
+Route::get('/toko/{produk:slug}', [TokoController::class, 'show']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
