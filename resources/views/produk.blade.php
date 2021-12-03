@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-    <article>
+    {{-- <article>
         @if ($produk->image)
             <div style="max-height: 350px; overflow:hidden">
                 <img src="{{ asset('storage/'. $produk->image) }}" alt="" class="img-fluid mt-3">
@@ -19,5 +19,52 @@
         <input type="number" value="1" min="1" class="form-control" style="width: 100px" name="">
         <input class="btn btn-primary" type="submit" value="Add Cart">
     </form>
-    <a href="/toko">Back to Toko</a>
+    <a href="/toko">Back to Toko</a> --}}
+
+    <div class="container">
+        <div class="card shadow">
+            <div class="row">
+                <div class="col-md-4 border-right">
+                    <img src="{{ asset('storage/'. $produk->image) }}" alt="" class="img-fluid mt-3">
+                </div>
+                <div class="col-md-8">
+                    <h2 class="mb-0">
+                        {{ $produk->nama_produk }}
+                    </h2>
+
+                    <hr>
+                    <label class="fw-bold"> Harga : Rp {{ $produk->harga_produk}}</label>
+                    <p class="mt-3">
+                        {!! $produk->deskripsi !!}
+                    </p>
+                    <hr>
+                    <div class="row mt-2">
+                        <div class="col-md-2">
+                            <label for="Quantity">Quantity</label>
+                            <input type="number" value="1" min="1" class="form-control" style="width: 100px" name="">
+                        </div>
+                        <div class="col-md-10">
+                            <button type="button" class="btn btn-primary float-start">Add to Cart <i class="bi bi-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    $(document).ready(function (){
+        $('.increment-btn').click(function (e) {
+            e.preventDefault();
+
+            var inc_value = $('.qty-input').val();
+            var value = parseInt(inc_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value < 10)
+            {
+                value++;
+                $('.qty-input').val(value);
+            }
+        });
+    });
+</script>
 @endsection
