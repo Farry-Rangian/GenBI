@@ -37,6 +37,9 @@
                     <p class="mt-3">
                         {!! $produk->deskripsi !!}
                     </p>
+                    <p class="mt-3">
+                       {{ $produk->user->no_telp }}
+                    </p>
                     <hr>
                     <form method="post" action="/toko/{produk:slug}" class="mb-5" enctype="multipart/form-data">
                         @csrf
@@ -44,9 +47,6 @@
                             <div class="col-md-2">
                                 <label for="jumlah_barang">Jumlah Barang</label>
                                 <input type="number" value="1" min="1" class="form-control" style="width: 100px" name="jumlah_barang">
-                            </div>
-                            <div class="col-md-10">
-                                <button type="button" class="btn btn-primary float-start">Order <i class="bi bi-cart"></i></button>
                             </div>
                         </div>
                     </form>
