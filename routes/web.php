@@ -3,6 +3,7 @@
 use App\Models\Artikel;
 use App\Models\Kegiatan;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TokoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -33,11 +34,7 @@ use App\Http\Controllers\DashboardPertanyaanController;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        "title" => "Home"
-    ]);
-});
+Route::get('/',[HomeController::class, 'index']);
 
 Route::get('/kegiatans', [KegiatanController::class, 'index']);
 
